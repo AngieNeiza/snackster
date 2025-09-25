@@ -1,20 +1,37 @@
-const texto = document.getElementById("texto");
+function buscarReceta() {
+  const antojo = document.getElementById("antojo").value;
+  const resultado = document.getElementById("resultado");
 
-// Colores que irá cambiando
-const colores = ["#fca326", "#ff5733", "#28a745", "#007bff", "#9b59b6"];
-let indice = 0;
+  const recetas = {
+    dulce: [
+      "Smoothie de banano con avena y miel 🍌🥛",
+      "Yogurt con frutas y granola 🍓🥭",
+      "Brownie saludable de avena y cacao 🍫🌾"
+    ],
+    crocante: [
+      "Chips de garbanzo al horno 🌱",
+      "Tostadas integrales con aguacate 🥑",
+      "Palitos de zanahoria con hummus 🥕"
+    ],
+    caliente: [
+      "Sopa de verduras casera 🥕🥦",
+      "Avena caliente con canela y manzana 🍏",
+      "Infusión de jengibre con miel y limón 🍋"
+    ],
+    frio: [
+      "Ensalada fresca con aguacate y mango 🥑🥭",
+      "Gazpacho andaluz (sopa fría de tomate) 🍅",
+      "Helado de yogurt natural con frutos rojos 🍧"
+    ]
+  };
 
-// Cambiar color cada 2 segundos
-setInterval(() => {
-  texto.style.color = colores[indice];
-  indice = (indice + 1) % colores.length;
-
-  // Disparar animación de rebote
-  texto.classList.add("bounce");
-  
-  // Quitar la clase después de la animación
-  setTimeout(() => {
-    texto.classList.remove("bounce");
-  }, 600);
-
-}, 2000);
+  if (recetas[antojo]) {
+    const opciones = recetas[antojo];
+    const aleatoria = opciones[Math.floor(Math.random() * opciones.length)];
+    resultado.style.display = "block";
+    resultado.innerHTML = `<b>✨ Snack recomendado:</b><br>${aleatoria}`;
+  } else {
+    resultado.style.display = "block";
+    resultado.innerHTML = "❌ Selecciona un tipo de snack";
+  }
+}
