@@ -2,12 +2,23 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Logo estilo Snackster</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Snackster</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png" alt="logo" class="logo">
-  <div class="texto" id="texto">SNACKSTER</div>
+  <div class="container">
+    <h1>🍔 Snackster</h1>
+    <select id="antojo">
+      <option value="">¿Qué se te antoja?</option>
+      <option value="dulce">Dulce</option>
+      <option value="crocante">Crocante</option>
+      <option value="caliente">Caliente</option>
+      <option value="frio">Frío</option>
+    </select>
+    <button onclick="buscarReceta()">Buscar snack</button>
+    <div id="resultado" class="resultado" style="display:none;"></div>
+  </div>
 
   <script src="script.js"></script>
 </body>
